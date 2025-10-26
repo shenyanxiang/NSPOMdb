@@ -1,24 +1,17 @@
-# NSPOMdb
+# NSPOMdb Source Code
 
-Simple README for the NSPOMdb web project (OBMicro).
+This repository contains the original source code and computational workflows used to build the Non-sterile Product Objectionable Microorganism Database (NSPOMdb) — an integrated web resource for the curation, analysis, and risk assessment of microbial contamination events in non-sterile products.
 
-## What this repo contains
-- Web application files and data used by the OBMicro project.
+## Repository Structure
+### ARG-VFG-finder/
 
-## Notes
-- A large file (`assets/VF_info.csv`) was removed from the repository history to meet GitHub limits.
-- A backup branch named `backup-before-remove` still exists locally containing the original history (do not delete it if you need to recover the original file).
+This directory contains the complete source code of the ARG-VFG-finder tool, which automatically annotates antimicrobial resistance genes (ARGs) and virulence factor genes (VFGs) from microbial genomic or protein sequences.
+It includes all scripts used for model execution, parameter setting, and performance validation as described in the manuscript.
 
-## Run / Development
-- This is a PHP web project; run with a local web server (e.g., place in your Apache/nginx document root or run PHP built-in server):
+### scripts/finished_product_DT.php & raw_materials_DT.php
 
-  ```powershell
-  # from repository root
-  php -S localhost:8000
-  ```
+ – Implements the decision-tree algorithm for qualitative risk assessment of finished non-sterile products and raw materials.
 
-## Large files
-- If you need to keep large data files in the future, consider using Git LFS (`git lfs install` and `git lfs track`) or host large datasets externally.
+### simulation.php 
 
-## Contact
-- For questions about this repository, contact the maintainer.
+– Implements the quantitative microbial risk calculation model, which computes a real-time risk score based on product and microbial parameters.
