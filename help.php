@@ -245,7 +245,8 @@
                     <div id="ARG-VFG-finder" class="mt-4 mb-4">
                       <h5><li>ARG-VFG-finder</li></h5>
                       <p>
-                        ARG-VFG-finder is a tool designed to predict the presence of antimicrobial resistance genes (ARGs) and virulence factor genes (VFGs) in microbial genomes.  
+                        ARG-VFG-finder is a tool designed to predict the presence of antimicrobial resistance genes (ARGs) and virulence factor genes (VFGs) in microbial genomes. 
+                        Users can select either bacterial or fungal mode via the tab above the tool interface. By uploading sequences in the required format and configuring simple settings, users can obtain predicted ARGs and VFGs. 
                         The workflow of ARG-VFG-finder is illustrated below:
                       </p>
                       <img src="assets/img/help/tool1.png" class="img-fluid mb-3" alt="ARG-VFG-finder pipeline">
@@ -264,7 +265,7 @@
                       The decision tree is developed based on Guideline Principle 9212 of the Chinese Pharmacopoeia (2025 Edition).
                     </p>
                     <p>
-                      Users are guided through a series of structured questions to assess the microbial risk associated with a particular microorganism found in a non-sterile product or its raw materials.  
+                      The program guides users through a step-by-step interface that presents product-related questions sequentially. The backend applies a binary (yes/no) decision-tree algorithm, in which each branch corresponds to a conditional judgment. Based on the user’s responses, the algorithm dynamically determines the next question or generates a final output. When the assessment involves product-related factors such as the route of administration or target population, the program queries the database to obtain the corresponding predefined risk levels before continuing the decision process. The resulting qualitative assessment classifies each microorganism–product combination into one of two categories, low risk or high risk.  
                       Below is an example illustrating the decision-making process:
                     </p>
                     <img src="assets/img/help/tool2.png" class="img-fluid mb-3" alt="Microbial risk management decision tree">
@@ -278,14 +279,19 @@
                     <h4>Microbial Risk Assessment</h4>
                     <p>
                       You can access this tool by navigating to <strong>"Tool" → "Microbial Risk Assessment"</strong> in the top navigation menu.
-                      This si a quantitative assessment tool based on the microbial risk calculation model proposed by Eissa, M. E. (Eissa, BJBAS, 2016). 
+                      This is a quantitative assessment tool based on the microbial risk calculation model proposed by Eissa, M. E. (Eissa, BJBAS, 2016). 
                       It estimates the level of microbial risk by integrating user-provided data, generating a risk score that can be used to determine 
                       whether a microorganism is objectionable. Here is an example result of the program.
                     </p>
                     <img src="assets/img/help/tool3.png" class="img-fluid mb-3" alt="Microbial risk assessment decision tree">
                     <p>
-                      During use, you will be prompted to answer a series of questions. After inputing all the required data, the dashboard on the right will
-                      show the calculated risk score and the corresponding risk level. To view the detailed calculation process, you can click the 
+                      The program accepts product- and microorganism-related inputs and computes a real-time risk score on a 0–100 scale, displayed on an interactive dashboard with 
+                      three interpretive bands (0–25: low; 25–50: moderate; 50–100: high). The input parameters are: product type (three categories), maximum single dose (Sd, g or mL), 
+                      antimicrobial efficacy test duration (tp, days), expected reduction magnitude (Ap, log CFU per g or mL), time to reach the expected reduction (t, days), detected 
+                      microbial contamination level (Vc, CFU per g or mL), target microorganism proportion (Fm, %), and minimum infective dose (ID, CFU). The algorithm applies log-scale 
+                      transformations and normalization to combine these factors; higher Vc, Fm, and Sd increase the score, while higher ID and demonstrated antimicrobial efficacy reduce 
+                      it, with a product-type–specific adjustment. Scores are clipped to the [0, 100] range and mapped to the three risk categories above. To view the detailed calculation 
+                      process, you can click the 
                       <strong>"View calculation formula"</strong> button.
                     </p>
                   </div>

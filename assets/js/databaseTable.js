@@ -957,6 +957,11 @@ $(function () {
           title: 'Country',
           sortable: true,
         },
+        { 
+          field: 'firm',
+          title: 'Company',
+          sortable: true,
+        },
         {
           field: 'date',
           title: 'Date',
